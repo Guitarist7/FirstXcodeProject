@@ -12,9 +12,22 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var lblHelloWorld: UILabel!
     
+    @IBOutlet weak var text1: UITextField!
+    
+    @IBOutlet weak var text2: UITextField!
+    
     var tapcount = 0
     
     @IBAction func pushmeTapped(_ sender: Any) {
+        print(text1.text!)
+        print(text2.text!)
+        //Original metho
+        //lblHelloWorld.text = String(Double(text1.text!)! + Double(text2.text!)!)
+        
+        //Improved method with string interpolation
+        lblHelloWorld.text = "Answer is ... \((Double(text1.text!)! + Double(text2.text!)!))"
+        
+        
         tapcount = tapcount + 1
         print(tapcount)
         if tapcount >= 10 {
